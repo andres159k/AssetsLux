@@ -308,3 +308,13 @@
     spelling: 'strict'
   };
 })(jQuery);
+
+$("#st-search-input").swiftypeSearch({
+  resultContainingElement: "#st-results-container",
+  engineKey: "xmRK9piyPpjS1NAYtrWR",
+  highlightFields: { page: { body: { size: 300, fallback: true } } }
+});
+$("#st-search-input").swiftype({
+  engineKey: "xmRK9piyPpjS1NAYtrWR
+"
+});
