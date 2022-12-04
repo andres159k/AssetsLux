@@ -317,8 +317,7 @@ $(function() {
     $('#input-filter-main').swiftypeSearch({
       renderFunction: customRenderFunction, // Use our custom function.
       resultContainingElement: '#st-results-container',
-      fetchFields: {'books': ['url','title','sections','body','published_on']},
-      searchFields: {'books': ['sections']},
+      fetchFields: {'books': ['url','title','sections','published_on']},
       engineKey: 'xmRK9piyPpjS1NAYtrWR',// Fetch the title and genre fields as sanitized highlights.
       perPage: 10,
     });
