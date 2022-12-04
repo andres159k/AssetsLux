@@ -311,6 +311,7 @@
 
 $('#input-filter-main').swiftypeSearch({
   renderFunction: customRenderFunction,
+  resultContainingElement: '#st-results-container',
   fetchFields: {'books': ['title','genre','published_on']},
   engineKey: 'xmRK9piyPpjS1NAYtrWR'
 });
