@@ -309,11 +309,15 @@
   };
 })(jQuery);
 
-$("#input-filter-main").swiftypeSearch({
-  resultContainingElement: "#st-results-container",
-  engineKey: "xmRK9piyPpjS1NAYtrWR",
-  highlightFields: { page: { body: { size: 300, fallback: true } } }
+$('#input-filter-main').swiftypeSearch({
+  renderFunction: customRenderFunction,
+  fetchFields: {'books': ['title','genre','published_on']},
+  engineKey: 'xmRK9piyPpjS1NAYtrWR'
 });
 $("#input-filter-main").swiftype({
   engineKey: "xmRK9piyPpjS1NAYtrWR"
 });
+var customRenderFunction = function(document_type, item) {
+  var out = '<a href="' + item['url'] + '" class="st-search-result-link">' + item['title'] + '</a>';
+  return out.concat('<p class="genre">' + item['genre'] + '</p>');
+};
