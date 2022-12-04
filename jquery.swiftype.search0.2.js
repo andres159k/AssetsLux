@@ -312,7 +312,7 @@
 $('#input-filter-main').swiftypeSearch({
   renderFunction: customRenderFunction,
   resultContainingElement: '#st-results-container',
-  fetchFields: {'books': ['title','genre','published_on']},
+  fetchFields: {'books': ['title','genre','sections', 'published_on']},
   engineKey: 'xmRK9piyPpjS1NAYtrWR'
 });
 $("#input-filter-main").swiftype({
@@ -320,5 +320,5 @@ $("#input-filter-main").swiftype({
 });
 var customRenderFunction = function(document_type, item) {
   var out = '<a href="' + item['url'] + '" class="st-search-result-link">' + item['title'] + '</a>';
-  return out.concat('<p class="genre">' + item['genre'] + '</p>');
+  return out.concat('<p class="sections">' + item['sections'] + '</p>');
 };
