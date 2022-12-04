@@ -309,11 +309,18 @@
   };
 })(jQuery);
 
-$("#input-filter-main").swiftypeSearch({
-  resultContainingElement: "#st-results-container",
-  engineKey: "xmRK9piyPpjS1NAYtrWR",
-  highlightFields: { page: { body: { size: 300, fallback: true } } }
-});
-$("#input-filter-main").swiftype({
-  engineKey: "xmRK9piyPpjS1NAYtrWR"
-});
+$(function() {
+  var customRenderFunction = function(document_type, item) {
+    var out = '<a href="' + item['url'] + '" class="st-ui-result">' + item['title'] + ' <span> type</span></a>';
+    return out.concat('<p class="sections">' + item['sections'] + '</p>');
+  };
+    $('#input-filter-main').swiftypeSearch({
+      renderFunction: customRenderFunction, // Use our custom function.
+      resultContainingElement: '#st-results-container',
+      fetchFields: {'books': ['url','title','sections','body','published_on']},
+      searchFields: {'books': ['sections']},
+      engineKey: 'xmRK9piyPpjS1NAYtrWR',// Fetch the title and genre fields as sanitized highlights.
+      perPage: 10,
+    });
+
+  });
